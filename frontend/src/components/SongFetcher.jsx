@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api';
+import './SongFetcher.css';
 
 const SongFetcher = () => {
     const [artist, setArtist] = useState('');
@@ -30,20 +31,23 @@ const SongFetcher = () => {
 
     return (
         <div>
-            <input
-                type="text"
-                value={artist}
-                onChange={(e) => setArtist(e.target.value)}
-                placeholder="Enter artist name"
-            />
-            <button onClick={fetchSongs} disabled={loading}>Fetch Songs</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <p>Total: <b>{songs.length}</b></p>
-            <ul>
+            <div className="input-container">
+                <input
+                    type="text"
+                    value={artist}
+                    onChange={(e) => setArtist(e.target.value)}
+                    placeholder="Enter artist name"
+                />
+                <button onClick={fetchSongs} disabled={loading} className="circle-button">+</button>
+            </div>
+            {error && <p style={{color: 'red'}}>{error}</p>}
+            {songs.length > 0 && <p>Total: <b>{songs.length}</b></p>}
+            <ul className="no-bullets">
+                {songs.length > 0 && <hr/>}
                 {songs.map((song, index) => (
                     <React.Fragment key={index}>
                         {index === 0 || song.album_name !== songs[index - 1].album_name ? (
-                            <strong>{song.album_name}</strong>
+                            <strong><br/>{song.album_name}</strong>
                         ) : null}
                         <li>
                             {song.song_id}. {song.song_name} ({song.song_listeners} listeners)
@@ -51,6 +55,7 @@ const SongFetcher = () => {
                         </li>
                     </React.Fragment>
                 ))}
+                {songs.length > 0 && <hr/>}
             </ul>
         </div>
     );
