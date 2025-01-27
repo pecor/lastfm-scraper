@@ -1,0 +1,49 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.87);
+    width: 300px;
+}
+
+.modal-content {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.modal-content td {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.modal-content .option {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.modal-content .option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-content .selected {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}

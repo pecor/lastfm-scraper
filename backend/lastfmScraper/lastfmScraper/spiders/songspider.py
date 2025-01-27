@@ -3,7 +3,7 @@
 # To run this spider and save data to a file use command: scrapy crawl songspider -O output.json (or .csv)
 
 import scrapy
-from lastfmScraper.items import SongItem
+from ..items import SongItem
 
 class SongspiderSpider(scrapy.Spider):
     name = "songspider"

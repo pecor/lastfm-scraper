@@ -17,3 +17,10 @@ class SongItem(scrapy.Item):
     album_name = scrapy.Field()
     song_listeners = scrapy.Field()
     song_url = scrapy.Field()
+
+class ArtistItem(scrapy.Item):
+    artist_name = scrapy.Field()
+    artist_image = scrapy.Field()
+    artist_listeners = scrapy.Field()
+    artist_scrobbles = scrapy.Field()
+    artist_url = scrapy.Field()
